@@ -3,18 +3,18 @@ import { queryElement } from '$utils/queryElement';
 window.Webflow = window.Webflow || [];
 
 window.Webflow.push(async () => {
-  const dataEl = queryElement('#policy-data');
+  const dataEl = queryElement('#post-format');
   if (!dataEl) return;
 
-  const { type, externalLink, pdfLink } = dataEl.dataset;
+  const { format, pdfUrl } = dataEl.dataset;
 
-  // policy types: page, external link, pdf
-  switch (type) {
-    case '(1) Egen sida':
+  switch (format) {
+    case 'PDF':
+      if (pdfUrl) {
+        window.open(pdfUrl, '_blank');
+        break;
+      }
+    default:
       return;
-    case '(2) Länk som öppnas i en ny flik':
-      externalLink ? window.open(externalLink, '_blank') : window.history.back();
-    case '(3) PDF som öppnas i en ny flik':
-      pdfLink ? window.open(pdfLink, '_blank') : window.history.back();
   }
 });
