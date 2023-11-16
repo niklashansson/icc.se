@@ -11,7 +11,6 @@ const ENTRY_POINTS = [
   'src/index.ts',
   'src/modal.ts',
   'src/navbar.ts',
-  'src/index.css',
   'src/members.ts',
   'src/policy.ts',
   'src/news.ts',
