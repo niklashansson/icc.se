@@ -4,6 +4,7 @@ import { EffectFade } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types/swiper-options';
 
 import { queryElement } from '$utils/queryElement';
+import { setElementToWindowHeight } from '$utils/setElementToWindowHeight';
 
 window.Webflow = window.Webflow || [];
 
@@ -13,7 +14,10 @@ window.Webflow.push(async () => {
   const ctaSwiperEl = queryElement('.swiper.is-home-header-cta');
   const bgSwiperEl = queryElement('.swiper.is-home-header-bg');
   const progressBarVal = queryElement('.homeheader1_swiper_progress_value');
-  if (!contentSwiperEl || !ctaSwiperEl || !bgSwiperEl || !progressBarVal) return;
+  const wrapperEl = queryElement('.homeheader1_wrap');
+  if (!contentSwiperEl || !ctaSwiperEl || !bgSwiperEl || !progressBarVal || !wrapperEl) return;
+
+  setElementToWindowHeight(wrapperEl);
 
   /* swiper options */
   const controllerSwiperOptions: SwiperOptions = {

@@ -11,8 +11,19 @@ window.Webflow.push(() => {
 
   const options: SwiperOptions = {
     speed: 800,
-    slidesPerView: 3,
     spaceBetween: 24,
+
+    breakpoints: {
+      991: {
+        slidesPerView: 3,
+      },
+      767: {
+        slidesPerView: 2,
+      },
+      478: {
+        slidesPerView: 1.125,
+      },
+    },
   };
 
   swiperElements.forEach((swiperElement) => {
