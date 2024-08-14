@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../bin/live-reload.js", "../src/date.ts"],
+  "sourcesContent": ["new EventSource(`${SERVE_ORIGIN}/esbuild`).addEventListener('change', () => location.reload());\n", "window.Webflow = window.Webflow || [];\n\nconst LOCALE = 'se-SV';\n\nwindow.Webflow.push(() => {\n  // select all date strings with attribute [localize-date]\n  const elementsToLocalize = document.querySelectorAll('[localize-date]');\n\n  elementsToLocalize.forEach((el) => {\n    const dateString = el.textContent;\n    if (!dateString) return;\n\n    const timestamp = Date.parse(dateString);\n    if (!timestamp || Number.isNaN(timestamp)) return;\n\n    const localized = localizeDate(timestamp);\n    el.textContent = localized;\n  });\n});\n\nconst formatter = new Intl.DateTimeFormat(LOCALE, {\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n});\n\nfunction localizeDate(timestamp: number) {\n  return formatter.format(timestamp);\n}\n"],
+  "mappings": ";;;AAAA,MAAI,YAAY,GAAG,iCAAsB,EAAE,iBAAiB,UAAU,MAAM,SAAS,OAAO,CAAC;;;ACA7F,SAAO,UAAU,OAAO,WAAW,CAAC;AAEpC,MAAM,SAAS;AAEf,SAAO,QAAQ,KAAK,MAAM;AAExB,UAAM,qBAAqB,SAAS,iBAAiB,iBAAiB;AAEtE,uBAAmB,QAAQ,CAAC,OAAO;AACjC,YAAM,aAAa,GAAG;AACtB,UAAI,CAAC;AAAY;AAEjB,YAAM,YAAY,KAAK,MAAM,UAAU;AACvC,UAAI,CAAC,aAAa,OAAO,MAAM,SAAS;AAAG;AAE3C,YAAM,YAAY,aAAa,SAAS;AACxC,SAAG,cAAc;AAAA,IACnB,CAAC;AAAA,EACH,CAAC;AAED,MAAM,YAAY,IAAI,KAAK,eAAe,QAAQ;AAAA,IAChD,MAAM;AAAA,IACN,OAAO;AAAA,IACP,KAAK;AAAA,EACP,CAAC;AAED,WAAS,aAAa,WAAmB;AACvC,WAAO,UAAU,OAAO,SAAS;AAAA,EACnC;",
+  "names": []
+}

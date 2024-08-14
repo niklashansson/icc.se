@@ -17,6 +17,7 @@ const ENTRY_POINTS = [
   'src/swipers/homeHeader.ts',
   'src/swipers/postsLayout1.ts',
   'src/logosBlock.ts',
+  'src/date.ts',
 ];
 
 // Config dev serving
